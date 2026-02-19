@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ba0q1okuwdx33"]
+
+[ext_resource type="Script" uid="uid://rj4efxwq3g7c" path="res://parts.gd" id="1_f7cmv"]
+[ext_resource type="Texture2D" uid="uid://bsifa5etkdnvc" path="res://icon.svg" id="1_mehiu"]
+
+[sub_resource type="Theme" id="Theme_f7cmv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7cmv"]
+size = Vector2(136.82759, 132.41377)
+
+[node name="Game" type="Node2D" unique_id=1719795711]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=359500343]
+
+[node name="TargetPoint" type="ColorRect" parent="." unique_id=1032938349]
+offset_left = 711.0
+offset_top = -149.0
+offset_right = 775.0
+offset_bottom = -85.0
+theme = SubResource("Theme_f7cmv")
+color = Color(1, 1, 1, 0.5058824)
+metadata/_edit_use_anchors_ = true
+
+[node name="Parts" type="Sprite2D" parent="." unique_id=293310629]
+position = Vector2(706, 2)
+scale = Vector2(0.2265625, 0.2265625)
+texture = ExtResource("1_mehiu")
+script = ExtResource("1_f7cmv")
+
+[node name="Area2D" type="Area2D" parent="Parts" unique_id=1508845285]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Area2D" unique_id=1748324135]
+position = Vector2(2921.931, 123.586205)
+shape = SubResource("RectangleShape2D_f7cmv")
+
+[node name="Label" type="Label" parent="." unique_id=228432679]
+offset_left = -476.0
+offset_top = -195.0
+offset_right = 57.0
+offset_bottom = -106.0
+theme_override_font_sizes/font_size = 64
+text = "JRTT職業体験ゲーム"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label" unique_id=932246100]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="." unique_id=861265453]
+offset_left = 216.0
+offset_top = -189.0
+offset_right = 425.0
+offset_bottom = -104.0
