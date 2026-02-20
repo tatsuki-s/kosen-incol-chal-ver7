@@ -1,14 +1,22 @@
 [gd_scene format=3 uid="uid://ba0q1okuwdx33"]
 
-[ext_resource type="Script" uid="uid://rj4efxwq3g7c" path="res://parts.gd" id="1_f7cmv"]
 [ext_resource type="Script" uid="uid://ctb4synlqarpq" path="res://sprite_2d.gd" id="1_lt4yx"]
 [ext_resource type="Texture2D" uid="uid://bsifa5etkdnvc" path="res://icon.svg" id="1_mehiu"]
 [ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="2_i1wwn"]
+[ext_resource type="Texture2D" uid="uid://nxk0qtt1mx53" path="res://assets/hideyo.png" id="4_51p13"]
+[ext_resource type="Texture2D" uid="uid://cmvt4xahoexuy" path="res://assets/theman.png" id="4_i1wwn"]
 
-[sub_resource type="Theme" id="Theme_f7cmv"]
+[sub_resource type="GDScript" id="GDScript_lt4yx"]
+script/source = "extends Sprite2D
+
+var gridSize = 32
+var dragging = false
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7cmv"]
-size = Vector2(161.65498, 132.41377)
+size = Vector2(161.65498, 150.06895)
+
+[sub_resource type="Theme" id="Theme_f7cmv"]
 
 [node name="Game" type="Node2D" unique_id=1719795711]
 script = ExtResource("1_lt4yx")
@@ -54,33 +62,61 @@ text = "現在の役職："
 vertical_alignment = 1
 
 [node name="Message" type="Label" parent="Camera2D" unique_id=1971173680]
-offset_left = -474.0
-offset_top = 114.0
-offset_right = 476.0
-offset_bottom = 342.0
+offset_left = -360.0
+offset_top = 154.0
+offset_right = 590.0
+offset_bottom = 333.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_i1wwn")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 28
 text = "aaaaaaaaa"
 
-[node name="TargetPoint" type="ColorRect" parent="." unique_id=1032938349]
-offset_left = 711.0
-offset_top = -149.0
-offset_right = 775.0
-offset_bottom = -85.0
+[node name="Speaker" type="Label" parent="Camera2D" unique_id=1638611097]
+offset_left = -360.0
+offset_top = 108.0
+offset_right = 578.0
+offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("2_i1wwn")
+theme_override_font_sizes/font_size = 32
+text = "話者"
+
+[node name="SpeakerImage" type="Sprite2D" parent="Camera2D" unique_id=1298737161]
+position = Vector2(-504, 219)
+scale = Vector2(8, 8)
+
+[node name="SpeakerImages" type="Node2D" parent="Camera2D" unique_id=333228796]
+visible = false
+position = Vector2(-507, 204)
+scale = Vector2(8, 8)
+
+[node name="Theman" type="Sprite2D" parent="Camera2D/SpeakerImages" unique_id=560439658]
+visible = false
+position = Vector2(0.25, 0.625)
+texture = ExtResource("4_i1wwn")
+
+[node name="Hideyo" type="Sprite2D" parent="Camera2D/SpeakerImages" unique_id=1255912449]
+visible = false
+texture = ExtResource("4_51p13")
+
+[node name="DragGame" type="Node2D" parent="." unique_id=708574409]
+position = Vector2(711, -149)
+
+[node name="Parts" type="Sprite2D" parent="DragGame" unique_id=293310629]
+position = Vector2(7, 150)
+scale = Vector2(0.2265625, 0.2265625)
+texture = ExtResource("1_mehiu")
+script = SubResource("GDScript_lt4yx")
+
+[node name="Area2D" type="Area2D" parent="DragGame/Parts" unique_id=1508845285]
+position = Vector2(-0.00010681152, 8.827591)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragGame/Parts/Area2D" unique_id=1748324135]
+position = Vector2(8.827586, 158.89655)
+shape = SubResource("RectangleShape2D_f7cmv")
+
+[node name="TargetPoint" type="ColorRect" parent="DragGame" unique_id=1032938349]
+offset_right = 64.0
+offset_bottom = 64.0
 theme = SubResource("Theme_f7cmv")
 color = Color(1, 1, 1, 0.5058824)
 metadata/_edit_use_anchors_ = true
-
-[node name="Parts" type="Sprite2D" parent="." unique_id=293310629]
-position = Vector2(706, 2)
-scale = Vector2(0.2265625, 0.2265625)
-texture = ExtResource("1_mehiu")
-script = ExtResource("1_f7cmv")
-
-[node name="Area2D" type="Area2D" parent="Parts" unique_id=1508845285]
-position = Vector2(-17.655281, 13.241394)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Area2D" unique_id=1748324135]
-position = Vector2(185.3794, 189.79309)
-shape = SubResource("RectangleShape2D_f7cmv")
