@@ -30,6 +30,4 @@ func msg_show(message) -> void:
 	
 func gameStart() -> void:
 	cam.position = Vector2(1280,0)
-	msg.text = "ゲームがはじまったよ"
-	msg.visible_ratio = 0
-	msg_play()
+	msg_show("ゲームが始まったよ")

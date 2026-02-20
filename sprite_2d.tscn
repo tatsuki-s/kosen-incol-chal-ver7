@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://rj4efxwq3g7c" path="res://parts.gd" id="1_f7cmv"]
 [ext_resource type="Script" uid="uid://ctb4synlqarpq" path="res://sprite_2d.gd" id="1_lt4yx"]
 [ext_resource type="Texture2D" uid="uid://bsifa5etkdnvc" path="res://icon.svg" id="1_mehiu"]
+[ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="2_i1wwn"]
 
 [sub_resource type="Theme" id="Theme_f7cmv"]
 
@@ -12,6 +13,25 @@ size = Vector2(161.65498, 132.41377)
 [node name="Game" type="Node2D" unique_id=1719795711]
 script = ExtResource("1_lt4yx")
 
+[node name="Logo" type="Label" parent="." unique_id=228432679]
+offset_left = -476.0
+offset_top = -195.0
+offset_right = 57.0
+offset_bottom = -106.0
+theme_override_fonts/font = ExtResource("2_i1wwn")
+theme_override_font_sizes/font_size = 64
+text = "JRTT職業体験ゲーム"
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="." unique_id=861265453]
+offset_left = 230.0
+offset_top = -184.0
+offset_right = 516.0
+offset_bottom = -99.0
+theme_override_fonts/font = ExtResource("2_i1wwn")
+theme_override_font_sizes/font_size = 32
+text = "ゲームスタート"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=359500343]
 
 [node name="Level" type="Label" parent="Camera2D" unique_id=855392292]
@@ -19,21 +39,27 @@ offset_left = 413.0
 offset_top = -300.0
 offset_right = 555.0
 offset_bottom = -248.0
+theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
 
 [node name="LevelArea" type="Label" parent="Camera2D" unique_id=1966212447]
 offset_left = 262.0
 offset_top = -298.0
-offset_right = 402.0
-offset_bottom = -257.0
+offset_right = 406.0
+offset_bottom = -248.0
+theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 24
 text = "現在の役職："
+vertical_alignment = 1
 
 [node name="Message" type="Label" parent="Camera2D" unique_id=1971173680]
-offset_left = -472.0
-offset_top = 109.0
-offset_right = 478.0
-offset_bottom = 337.0
+offset_left = -474.0
+offset_top = 114.0
+offset_right = 476.0
+offset_bottom = 342.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 26
 text = "aaaaaaaaa"
 
@@ -58,24 +84,3 @@ position = Vector2(-17.655281, 13.241394)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Area2D" unique_id=1748324135]
 position = Vector2(185.3794, 189.79309)
 shape = SubResource("RectangleShape2D_f7cmv")
-
-[node name="Label" type="Label" parent="." unique_id=228432679]
-offset_left = -476.0
-offset_top = -195.0
-offset_right = 57.0
-offset_bottom = -106.0
-theme_override_font_sizes/font_size = 64
-text = "JRTT職業体験ゲーム"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Label" unique_id=932246100]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="StartButton" type="Button" parent="." unique_id=861265453]
-offset_left = 253.0
-offset_top = -120.0
-offset_right = 462.0
-offset_bottom = -35.0
-theme_override_font_sizes/font_size = 32
-text = "ゲームスタート"
