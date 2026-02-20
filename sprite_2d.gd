@@ -6,9 +6,7 @@ extends Node2D
 @onready var msg = $Camera2D/Message
 @onready var spkr = $Camera2D/Speaker
 @onready var spkrImage = $Camera2D/SpeakerImage
-#@onready var theman = $Camera2D/Theman
-#@onready var hideyo = $Camera2D/Hideyo
-#@onready var speakers = $Camera2D/SpeakerImages.get_children()
+@onready var nextButton = $Camera2D/NextButton
 
 var post = {0: "新人",1: "職員",2: "副課長",3: "課長",
 				4: "所長",5:"副理事長",6: "理事長"}
@@ -39,8 +37,9 @@ func msg_show(message, speaker) -> void:
 	spkr.text = speaker
 	msg.visible_ratio = 0
 	msg_play()
+	await nextButton.pressed
 	
 func gameStart() -> void:
 	cam.position = Vector2(0,-720)
-	msg_show("ゲームが始まったよ", "先輩")
-	msg_show("そうみたいだね", "自分")
+	await msg_show("ゲームが始まったよ", "先輩")
+	await msg_show("そうみたいだね", "自分")

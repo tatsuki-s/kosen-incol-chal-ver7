@@ -64,7 +64,7 @@ vertical_alignment = 1
 [node name="Message" type="Label" parent="Camera2D" unique_id=1971173680]
 offset_left = -360.0
 offset_top = 154.0
-offset_right = 590.0
+offset_right = 474.0
 offset_bottom = 333.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_i1wwn")
@@ -97,6 +97,15 @@ texture = ExtResource("4_i1wwn")
 [node name="Hideyo" type="Sprite2D" parent="Camera2D/SpeakerImages" unique_id=1255912449]
 visible = false
 texture = ExtResource("4_51p13")
+
+[node name="NextButton" type="Button" parent="Camera2D" unique_id=795769064]
+offset_left = 489.0
+offset_top = 162.0
+offset_right = 596.0
+offset_bottom = 262.0
+theme_override_fonts/font = ExtResource("2_i1wwn")
+theme_override_font_sizes/font_size = 24
+text = "Next"
 
 [node name="DragGame" type="Node2D" parent="." unique_id=708574409]
 position = Vector2(711, -149)
