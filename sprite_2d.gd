@@ -8,14 +8,17 @@ extends Node2D
 @onready var spkrImage = $Camera2D/SpeakerImage
 @onready var nextButton = $Camera2D/NextButton
 
+@export var screen: int = 0 
+
 var post = ["新人", "職員", "副課長", "課長", "所長", "副理事長", "理事長"]
 var nowLv = 0
-var screen = 0
+#var screen = 0
 var duration:float = 0.05
 var speaking = false 
 
 func _ready() -> void:
 	startButton.connect("pressed", Callable(self, "gameStart"))
+	cam.position = Vector2(0, 720)
 	lv.text = post[nowLv]
 	msg.text = ""
 	spkr.text = ""
@@ -49,14 +52,9 @@ func msg_show(message, speaker) -> void:
 	spkr.hide()
 	spkrImage.hide()
 	nextButton.hide()
-
-#func hideMsg() -> void:
-
 	
 func gameStart() -> void:
 	cam.position = Vector2(0,-720)
 	await msg_show("ゲームが始まったよ", "先輩")
 	await msg_show("そうみたいだね", "自分")
-	cam.position = Vector2(1280, 0)
-	#hideMsg()
-	
+	cam.position = Vector2(0, 0)

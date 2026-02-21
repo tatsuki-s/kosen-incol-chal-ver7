@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="2_i1wwn"]
 [ext_resource type="Texture2D" uid="uid://nxk0qtt1mx53" path="res://assets/hideyo.png" id="4_51p13"]
 [ext_resource type="Texture2D" uid="uid://cmvt4xahoexuy" path="res://assets/theman.png" id="4_i1wwn"]
+[ext_resource type="Script" uid="uid://bbodt0g0brbjf" path="res://drag_game.gd" id="5_lk3y4"]
 
 [sub_resource type="GDScript" id="GDScript_lt4yx"]
 script/source = "extends Sprite2D
@@ -22,44 +23,49 @@ size = Vector2(161.65498, 150.06895)
 script = ExtResource("1_lt4yx")
 
 [node name="Logo" type="Label" parent="." unique_id=228432679]
-offset_left = -476.0
-offset_top = -195.0
-offset_right = 57.0
-offset_bottom = -106.0
+offset_left = -514.0
+offset_top = 506.0
+offset_right = 62.0
+offset_bottom = 595.0
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 64
 text = "JRTT職業体験ゲーム"
 metadata/_edit_use_anchors_ = true
 
 [node name="StartButton" type="Button" parent="." unique_id=861265453]
-offset_left = 230.0
-offset_top = -184.0
-offset_right = 516.0
-offset_bottom = -99.0
+offset_left = 192.0
+offset_top = 517.0
+offset_right = 478.0
+offset_bottom = 602.0
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 32
 text = "ゲームスタート"
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=359500343]
+position = Vector2(0, 720)
 
 [node name="Level" type="Label" parent="Camera2D" unique_id=855392292]
-offset_left = 413.0
-offset_top = -300.0
-offset_right = 555.0
-offset_bottom = -248.0
+offset_left = 394.0
+offset_top = -294.0
+offset_right = 536.0
+offset_bottom = -242.0
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 24
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelArea" type="Label" parent="Camera2D" unique_id=1966212447]
-offset_left = 262.0
-offset_top = -298.0
-offset_right = 406.0
-offset_bottom = -248.0
+offset_left = 243.0
+offset_top = -292.0
+offset_right = 387.0
+offset_bottom = -242.0
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 24
 text = "現在の役職："
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="Camera2D" unique_id=1971173680]
 offset_left = -360.0
@@ -70,6 +76,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 28
 text = "aaaaaaaaa"
+metadata/_edit_use_anchors_ = true
 
 [node name="Speaker" type="Label" parent="Camera2D" unique_id=1638611097]
 offset_left = -360.0
@@ -79,6 +86,7 @@ offset_bottom = 153.0
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 32
 text = "話者"
+metadata/_edit_use_anchors_ = true
 
 [node name="SpeakerImage" type="Sprite2D" parent="Camera2D" unique_id=1298737161]
 position = Vector2(-504, 219)
@@ -106,12 +114,14 @@ offset_bottom = 262.0
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 24
 text = "Next"
+metadata/_edit_use_anchors_ = true
 
 [node name="DragGame" type="Node2D" parent="." unique_id=708574409]
-position = Vector2(711, -149)
+position = Vector2(-70, -58)
+script = ExtResource("5_lk3y4")
 
 [node name="Parts" type="Sprite2D" parent="DragGame" unique_id=293310629]
-position = Vector2(7, 150)
+position = Vector2(73, 116)
 scale = Vector2(0.2265625, 0.2265625)
 texture = ExtResource("1_mehiu")
 script = SubResource("GDScript_lt4yx")
@@ -120,7 +130,7 @@ script = SubResource("GDScript_lt4yx")
 position = Vector2(-0.00010681152, 8.827591)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragGame/Parts/Area2D" unique_id=1748324135]
-position = Vector2(8.827586, 158.89655)
+position = Vector2(0.0001077652, -13.241388)
 shape = SubResource("RectangleShape2D_f7cmv")
 
 [node name="TargetPoint" type="ColorRect" parent="DragGame" unique_id=1032938349]
@@ -129,3 +139,9 @@ offset_bottom = 64.0
 theme = SubResource("Theme_f7cmv")
 color = Color(1, 1, 1, 0.5058824)
 metadata/_edit_use_anchors_ = true
+
+[node name="position" type="Label" parent="DragGame" unique_id=93852180]
+offset_left = 181.0
+offset_top = -63.0
+offset_right = 449.0
+offset_bottom = -25.0
