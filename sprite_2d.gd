@@ -31,6 +31,9 @@ func msg_play():
 		nextButton.show()
 # 1文字ずつ表示させる関数
 func msg_show(message, speaker) -> void:
+	spkrImage.show()
+	msg.show()
+	spkr.show()
 	if speaker == "先輩":
 		spkrImage.texture = load("res://assets/theman.png")
 	elif speaker == "自分":
@@ -40,9 +43,20 @@ func msg_show(message, speaker) -> void:
 	msg.visible_ratio = 0
 	msg_play()
 	await nextButton.pressed
+	msg.text = ""
+	msg.hide()
+	spkr.text = ""
+	spkr.hide()
+	spkrImage.hide()
 	nextButton.hide()
+
+#func hideMsg() -> void:
+
 	
 func gameStart() -> void:
 	cam.position = Vector2(0,-720)
 	await msg_show("ゲームが始まったよ", "先輩")
 	await msg_show("そうみたいだね", "自分")
+	cam.position = Vector2(1280, 0)
+	#hideMsg()
+	
