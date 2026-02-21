@@ -20,13 +20,16 @@ func _ready() -> void:
 	lv.text = post[nowLv]
 	msg.text = ""
 	spkr.text = ""
+	nextButton.hide()
 
 # 1文字ずつ表示する処理
 func msg_play():
 	msg.visible_ratio += 1.0 / msg.text.length() 
 	await get_tree().create_timer(duration).timeout
 	if msg.visible_ratio < 1: 
-		msg_play()	
+		msg_play()
+	else:
+		nextButton.show()
 # 1文字ずつ表示させる関数
 func msg_show(message, speaker) -> void:
 	if speaker == "先輩":
@@ -36,8 +39,10 @@ func msg_show(message, speaker) -> void:
 	msg.text = message
 	spkr.text = speaker
 	msg.visible_ratio = 0
-	msg_play()
+	await msg_play()
+	#nextButton.show()
 	await nextButton.pressed
+	nextButton.hide()
 	
 func gameStart() -> void:
 	cam.position = Vector2(0,-720)
