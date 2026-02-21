@@ -8,8 +8,7 @@ extends Node2D
 @onready var spkrImage = $Camera2D/SpeakerImage
 @onready var nextButton = $Camera2D/NextButton
 
-var post = {0: "新人",1: "職員",2: "副課長",3: "課長",
-				4: "所長",5:"副理事長",6: "理事長"}
+var post = ["新人", "職員", "副課長", "課長", "所長", "副理事長", "理事長"]
 var nowLv = 0
 var screen = 0
 var duration:float = 0.05
@@ -39,8 +38,7 @@ func msg_show(message, speaker) -> void:
 	msg.text = message
 	spkr.text = speaker
 	msg.visible_ratio = 0
-	await msg_play()
-	#nextButton.show()
+	msg_play()
 	await nextButton.pressed
 	nextButton.hide()
 	
