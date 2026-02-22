@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://nxk0qtt1mx53" path="res://assets/hideyo.png" id="4_51p13"]
 [ext_resource type="Texture2D" uid="uid://cmvt4xahoexuy" path="res://assets/theman.png" id="4_i1wwn"]
 [ext_resource type="Script" uid="uid://bbodt0g0brbjf" path="res://drag_game.gd" id="5_lk3y4"]
-[ext_resource type="PackedScene" uid="uid://vamx5gfrimi8" path="res://parts.tscn" id="6_lk3y4"]
 
 [node name="Game" type="Node2D" unique_id=1719795711]
 script = ExtResource("1_lt4yx")
@@ -106,6 +105,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DragGame" type="Node2D" parent="." unique_id=708574409]
 script = ExtResource("5_lk3y4")
-
-[node name="Parts" parent="DragGame" unique_id=315916150 instance=ExtResource("6_lk3y4")]
-position = Vector2(1, 0)

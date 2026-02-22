@@ -13,6 +13,7 @@ var target = Vector2(-192, 280)
 var isDraging = false
 var dragSpace = 64
 var area = Rect2(64, 64, 1152, 576)
+var defaultIdx = Vector2.ZERO
 
 func _ready() -> void:
 	area2D.input_event.connect(_onArea2dInput)
@@ -21,6 +22,7 @@ func _onArea2dInput(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		if event.pressed:
 			isDraging = true
+			defaultIdx = global_position
 
 func _input(event):
 	if isDraging and ( event is InputEventMouseButton or event is InputEventScreenTouch):
