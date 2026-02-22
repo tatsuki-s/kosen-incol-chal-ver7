@@ -1,25 +1,21 @@
 extends Node2D
 
 @onready var startButton = $StartButton
-@onready var cam = $Camera2D
-@onready var lv = $Camera2D/Level
-@onready var msg = $Camera2D/Message
-@onready var spkr = $Camera2D/Speaker
-@onready var spkrImage = $Camera2D/SpeakerImage
-@onready var nextButton = $Camera2D/NextButton
+@onready var lv = Common.get_node("Level")
+@onready var msg = $CanvasLayer/Message
+@onready var spkr = $CanvasLayer/Speaker
+@onready var spkrImage = $CanvasLayer/SpeakerImage
+@onready var nextButton = $CanvasLayer/NextButton
 
 @export var screen: int = 0 
 
-var post = ["新人", "職員", "副課長", "課長", "所長", "副理事長", "理事長"]
-var nowLv = 0
 #var screen = 0
 var duration:float = 0.05
 var speaking = false 
 
 func _ready() -> void:
 	startButton.connect("pressed", Callable(self, "gameStart"))
-	cam.position = Vector2(0, 720)
-	lv.text = post[nowLv]
+	lv.text = Global.post[Global.nowLv]
 	msg.text = ""
 	spkr.text = ""
 	nextButton.hide()
@@ -54,7 +50,7 @@ func msg_show(message, speaker) -> void:
 	nextButton.hide()
 	
 func gameStart() -> void:
-	cam.position = Vector2(0,-720)
 	await msg_show("ゲームが始まったよ", "先輩")
 	await msg_show("そうみたいだね", "自分")
-	cam.position = Vector2(0, 0)
+	get_tree().change_scene_to_file("res://drag_game.tscn")
+	

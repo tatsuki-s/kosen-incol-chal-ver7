@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://meiuna4eniqt"]
+
+[ext_resource type="Script" uid="uid://bbodt0g0brbjf" path="res://drag_game.gd" id="1_aweny"]
+
+[node name="DragGame" type="Node2D" unique_id=815526602]
+script = ExtResource("1_aweny")

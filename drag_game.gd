@@ -4,19 +4,19 @@ var partsScene = preload("res://parts.tscn")
 var space = 96
 
 var ans = [
-	Vector2(-192.0, 280.0),
+	#一例
+	Vector2(200.0, 200.0),
 	Vector2(-192.0, 280.0),
 	Vector2(-192.0, 280.0),
 	Vector2(-192.0, 280.0),
 	Vector2(-192.0, 280.0)
 	]
 
-
 func _ready() -> void:
 	#spawn(Vector2(0, 0))
-	var defaultX = -600
+	var defaultX = 60
 	for i in range(len(ans)):
-		spawn(Vector2(defaultX, -300), i)
+		spawn(Vector2(defaultX, 60), i)
 		defaultX += space
 
 func spawn(pos, name):
