@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://vamx5gfrimi8"]
+
+[ext_resource type="Texture2D" uid="uid://bsifa5etkdnvc" path="res://icon.svg" id="1_mifpu"]
+
+[sub_resource type="GDScript" id="GDScript_lt4yx"]
+script/source = "extends Sprite2D
+
+signal dropped(partNode)
+
+@onready var area2D = $Area2D
+
+var target = Vector2(-192, 280)
+var isDraging = false
+var dragSpace = 64
+var area = Rect2(64, 64, 1152, 576)
+
+func _ready() -> void:
+	area2D.input_event.connect(_onArea2dInput)
+
+func _onArea2dInput(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
+		if event.pressed:
+			isDraging = true
+
+func _input(event):
+	if isDraging and ( event is InputEventMouseButton or event is InputEventScreenTouch):
+		if not event.pressed:
+			isDraging = false
+			dropped.emit(self)
+	
+	if isDraging and event is InputEventScreenDrag:
+		var localPos = get_viewport().get_mouse_position()
+		var posX = snapped(localPos.x, dragSpace)
+		var posY = snapped(localPos.y, dragSpace)
+		
+		posX = clamp(posX, area.position.x, area.end.x)
+		posY = clamp(posY, area.position.y, area.end.y)
+		
+		var camPos = get_viewport().get_canvas_transform().affine_inverse() * Vector2(posX, posY)
+		
+		global_position = camPos
+		print(camPos == target)
+		
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7cmv"]
+size = Vector2(128, 126)
+
+[node name="Parts" type="Sprite2D" unique_id=315916150]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_mifpu")
+script = SubResource("GDScript_lt4yx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=606100300]
+position = Vector2(-0.00010681152, 8.827591)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1650170936]
+position = Vector2(0.00010585785, -9.827591)
+shape = SubResource("RectangleShape2D_f7cmv")

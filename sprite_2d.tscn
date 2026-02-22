@@ -1,56 +1,11 @@
 [gd_scene format=3 uid="uid://ba0q1okuwdx33"]
 
 [ext_resource type="Script" uid="uid://ctb4synlqarpq" path="res://sprite_2d.gd" id="1_lt4yx"]
-[ext_resource type="Texture2D" uid="uid://bsifa5etkdnvc" path="res://icon.svg" id="1_mehiu"]
 [ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="2_i1wwn"]
 [ext_resource type="Texture2D" uid="uid://nxk0qtt1mx53" path="res://assets/hideyo.png" id="4_51p13"]
 [ext_resource type="Texture2D" uid="uid://cmvt4xahoexuy" path="res://assets/theman.png" id="4_i1wwn"]
 [ext_resource type="Script" uid="uid://bbodt0g0brbjf" path="res://drag_game.gd" id="5_lk3y4"]
-
-[sub_resource type="Theme" id="Theme_f7cmv"]
-
-[sub_resource type="GDScript" id="GDScript_lt4yx"]
-script/source = "extends Sprite2D
-
-@onready var area2D = $Area2D
-
-var dragIdx = [0, 0]
-var isDraging = false
-var target = [0, 0]
-var dragSpace = 64
-var area = Rect2(64, 64, 1152, 576)
-
-func _ready() -> void:
-	area2D.input_event.connect(_onArea2dInput)
-
-func _onArea2dInput(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton or event is InputEventScreenTouch:
-		if event.pressed:
-			isDraging = true
-	
-
-func _input(event):
-	if isDraging and ( event is InputEventMouseButton or event is InputEventScreenTouch):
-		if not event.pressed:
-			isDraging = false
-	
-	if isDraging and event is InputEventScreenDrag:
-		var localPos = get_viewport().get_mouse_position()
-		var posX = snapped(localPos.x, dragSpace)
-		var posY = snapped(localPos.y, dragSpace)
-		
-		posX = clamp(posX, area.position.x, area.end.x)
-		posY = clamp(posY, area.position.y, area.end.y)
-		
-		var camPos = get_viewport().get_canvas_transform().affine_inverse() * Vector2(posX, posY)
-		
-		global_position = camPos
-		print(camPos)
-		
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7cmv"]
-size = Vector2(128, 126)
+[ext_resource type="PackedScene" uid="uid://vamx5gfrimi8" path="res://parts.tscn" id="6_lk3y4"]
 
 [node name="Game" type="Node2D" unique_id=1719795711]
 script = ExtResource("1_lt4yx")
@@ -80,20 +35,20 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(0, 720)
 
 [node name="Level" type="Label" parent="Camera2D" unique_id=855392292]
-offset_left = 394.0
-offset_top = -294.0
-offset_right = 536.0
-offset_bottom = -242.0
+offset_left = 483.0
+offset_top = -345.0
+offset_right = 625.0
+offset_bottom = -293.0
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 24
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelArea" type="Label" parent="Camera2D" unique_id=1966212447]
-offset_left = 243.0
-offset_top = -292.0
-offset_right = 387.0
-offset_bottom = -242.0
+offset_left = 332.0
+offset_top = -343.0
+offset_right = 476.0
+offset_bottom = -293.0
 theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 24
 text = "現在の役職："
@@ -152,24 +107,5 @@ metadata/_edit_use_anchors_ = true
 [node name="DragGame" type="Node2D" parent="." unique_id=708574409]
 script = ExtResource("5_lk3y4")
 
-[node name="TargetPoint" type="ColorRect" parent="DragGame" unique_id=1032938349]
-offset_left = 85.0
-offset_top = -82.0
-offset_right = 149.0
-offset_bottom = -18.0
-theme = SubResource("Theme_f7cmv")
-color = Color(1, 1, 1, 0.5058824)
-metadata/_edit_use_anchors_ = true
-
-[node name="Parts" type="Sprite2D" parent="DragGame" unique_id=293310629]
-position = Vector2(156, 25)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mehiu")
-script = SubResource("GDScript_lt4yx")
-
-[node name="Area2D" type="Area2D" parent="DragGame/Parts" unique_id=1508845285]
-position = Vector2(-0.00010681152, 8.827591)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DragGame/Parts/Area2D" unique_id=1748324135]
-position = Vector2(0.00010585785, -9.827591)
-shape = SubResource("RectangleShape2D_f7cmv")
+[node name="Parts" parent="DragGame" unique_id=315916150 instance=ExtResource("6_lk3y4")]
+position = Vector2(1, 0)
