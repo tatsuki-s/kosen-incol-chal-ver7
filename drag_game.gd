@@ -2,6 +2,7 @@ extends Node2D
 
 var partsScene = preload("res://parts.tscn")
 var space = 96
+var correct = 0
 
 var ans = [
 	#一例
@@ -31,6 +32,11 @@ func _partDropped(partNode):
 	if partNode.global_position.distance_to(ans[int(partNode.name)]) < 10:
 		partNode.global_position = ans[int(partNode.name)]
 		print("正解")
+		correct += 1
+		if correct >= len(ans):
+			# ここでmessageシーンを呼びたい
+			pass
+			
 		# 正解したらドラッグ不可に
 		partNode.set_process_input(false)
 	else:

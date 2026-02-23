@@ -2,9 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="1_y7k74"]
 
-[node name="Title" type="Node2D" unique_id=1448675054]
+[node name="Title" type="Node2D" unique_id=951160289]
 
-[node name="Logo" type="Label" parent="." unique_id=1699397344]
+[node name="Logo" type="Label" parent="." unique_id=107748709]
 offset_left = 133.0
 offset_top = 144.0
 offset_right = 709.0
@@ -15,7 +15,7 @@ theme_override_font_sizes/font_size = 64
 text = "JRTT職業体験ゲーム"
 metadata/_edit_use_anchors_ = true
 
-[node name="StartButton" type="Button" parent="." unique_id=1433458796]
+[node name="StartButton" type="Button" parent="." unique_id=730938627]
 offset_left = 839.0
 offset_top = 155.0
 offset_right = 1125.0

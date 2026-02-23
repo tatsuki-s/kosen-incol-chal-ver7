@@ -40,7 +40,6 @@ func _input(event):
 		var camPos = get_viewport().get_canvas_transform().affine_inverse() * Vector2(posX, posY)
 		
 		global_position = camPos
-		
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7cmv"]
