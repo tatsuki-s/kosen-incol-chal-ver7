@@ -6,7 +6,6 @@ var correct = 0
 
 var ans = [
 	#一例
-	Vector2(512.0, 512.0),
 	Vector2(512.0, 512.0)
 	]
 

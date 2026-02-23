@@ -19,15 +19,21 @@ func _ready() -> void:
 	startConversation()
 	
 # 1文字ずつ表示する処理
-func msg_play():
-	msg.visible_ratio += 1.0 / msg.text.length() 
-	await get_tree().create_timer(duration).timeout
-	if msg.visible_ratio < 1: 
-		msg_play()
-	else:
-		nextButton.show()
+#func msg_play():
+	#msg.visible_ratio += 1.0 / msg.text.length() 
+	#
+	##if not is_inside_tree(): return
+	#
+	#await get_tree().create_timer(duration).timeout
+	#if msg.visible_ratio < 1: 
+		#msg_play()
+	#else:
+		#nextButton.show()
 # 1文字ずつ表示させる関数
 func msg_show(speaker, message) -> void:
+	if not is_inside_tree():
+		return
+
 	spkrImage.show()
 	msg.show()
 	spkr.show()
@@ -38,7 +44,20 @@ func msg_show(speaker, message) -> void:
 	msg.text = message
 	spkr.text = speaker
 	msg.visible_ratio = 0
-	msg_play()
+	nextButton.hide()
+	
+	var tree = get_tree()
+	if tree == null:
+		return
+	
+	#msg_play()
+	var tween = get_tree().create_tween()
+	# visible_ratioを0から1まで、(文字数 * duration)秒かけて変化させる
+	tween.tween_property(msg, "visible_ratio", 1.0, message.length() * duration)
+	
+	# 文字表示が終わるのを待つ
+	await tween.finished
+	nextButton.show()
 	await nextButton.pressed
 	msg.text = ""
 	msg.hide()
@@ -48,6 +67,13 @@ func msg_show(speaker, message) -> void:
 	nextButton.hide()
 
 func startConversation():
-	for i in dialogs:
-		await msg_show(i[0], i[1])
-	get_tree().change_scene_to_file("res://drag_game.tscn")
+	if Global.nowLv == Global.post.size() -1:
+		await msg_show("先輩", Global.post[Global.nowLv]+"就任おめでとう")
+		Common.updateLv()
+		Global.toTitle() 
+		return
+	else:
+		for i in dialogs:
+			await msg_show(i[0], i[1])
+		Global.toGame()
+		return
