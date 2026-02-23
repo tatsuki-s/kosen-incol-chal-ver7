@@ -15,17 +15,6 @@ script = ExtResource("1_lt4yx")
 [node name="Conversation" type="Node2D" parent="." unique_id=1204760085]
 script = ExtResource("3_q2pai")
 
-[node name="LevelArea" type="Label" parent="Conversation" unique_id=871546775]
-offset_left = 979.0
-offset_top = 15.0
-offset_right = 1123.0
-offset_bottom = 65.0
-theme_override_fonts/font = ExtResource("2_i1wwn")
-theme_override_font_sizes/font_size = 24
-text = "現在の役職："
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="Message" type="Label" parent="Conversation" unique_id=573873568]
 visible = false
 offset_left = 287.0
