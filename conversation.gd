@@ -16,6 +16,7 @@ func _ready() -> void:
 	msg.text = ""
 	spkr.text = ""
 	nextButton.hide()
+	startConversation()
 	
 # 1文字ずつ表示する処理
 func msg_play():
@@ -49,3 +50,4 @@ func msg_show(speaker, message) -> void:
 func startConversation():
 	for i in dialogs:
 		await msg_show(i[0], i[1])
+	get_tree().change_scene_to_file("res://drag_game.tscn")

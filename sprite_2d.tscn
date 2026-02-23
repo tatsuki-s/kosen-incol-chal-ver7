@@ -1,69 +1,9 @@
 [gd_scene format=3 uid="uid://ba0q1okuwdx33"]
 
 [ext_resource type="Script" uid="uid://ctb4synlqarpq" path="res://sprite_2d.gd" id="1_lt4yx"]
-[ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="2_i1wwn"]
 [ext_resource type="PackedScene" uid="uid://k0po40po23e7" path="res://title.tscn" id="2_lk3y4"]
-[ext_resource type="Script" uid="uid://bd4qirybaln61" path="res://conversation.gd" id="3_q2pai"]
-[ext_resource type="Texture2D" uid="uid://cmvt4xahoexuy" path="res://assets/theman.png" id="5_w12x5"]
-[ext_resource type="Texture2D" uid="uid://nxk0qtt1mx53" path="res://assets/hideyo.png" id="6_ysd0p"]
 
 [node name="Game" type="Node2D" unique_id=1719795711]
 script = ExtResource("1_lt4yx")
 
 [node name="Title" parent="." unique_id=951160289 instance=ExtResource("2_lk3y4")]
-
-[node name="Conversation" type="Node2D" parent="." unique_id=1204760085]
-script = ExtResource("3_q2pai")
-
-[node name="Message" type="Label" parent="Conversation" unique_id=573873568]
-visible = false
-offset_left = 287.0
-offset_top = 512.0
-offset_right = 1121.0
-offset_bottom = 691.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_i1wwn")
-theme_override_font_sizes/font_size = 28
-text = "aaaaaaaaa"
-metadata/_edit_use_anchors_ = true
-
-[node name="Speaker" type="Label" parent="Conversation" unique_id=713381624]
-visible = false
-offset_left = 287.0
-offset_top = 466.0
-offset_right = 1225.0
-offset_bottom = 511.0
-theme_override_fonts/font = ExtResource("2_i1wwn")
-theme_override_font_sizes/font_size = 32
-text = "話者"
-metadata/_edit_use_anchors_ = true
-
-[node name="SpeakerImage" type="Sprite2D" parent="Conversation" unique_id=1721899421]
-visible = false
-position = Vector2(143, 577)
-scale = Vector2(8, 8)
-
-[node name="SpeakerImages" type="Node2D" parent="Conversation" unique_id=1932702947]
-visible = false
-position = Vector2(-507, 924)
-scale = Vector2(8, 8)
-
-[node name="Theman" type="Sprite2D" parent="Conversation/SpeakerImages" unique_id=1459995989]
-visible = false
-position = Vector2(0.25, 0.625)
-texture = ExtResource("5_w12x5")
-
-[node name="Hideyo" type="Sprite2D" parent="Conversation/SpeakerImages" unique_id=1097376367]
-visible = false
-texture = ExtResource("6_ysd0p")
-
-[node name="NextButton" type="Button" parent="Conversation" unique_id=356615071]
-visible = false
-offset_left = 1136.0
-offset_top = 520.0
-offset_right = 1243.0
-offset_bottom = 620.0
-theme_override_fonts/font = ExtResource("2_i1wwn")
-theme_override_font_sizes/font_size = 24
-text = "Next"
-metadata/_edit_use_anchors_ = true

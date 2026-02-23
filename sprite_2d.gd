@@ -16,5 +16,5 @@ func gameStart() -> void:
 	startButton.disabled = true
 	# ここで会話
 	pass
-	get_tree().change_scene_to_file("res://drag_game.tscn")
+	get_tree().change_scene_to_file("res://conversation.tscn")
 	
