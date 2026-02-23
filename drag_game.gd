@@ -5,7 +5,7 @@ var space = 96
 
 var ans = [
 	#一例
-	Vector2(200.0, 200.0),
+	Vector2(512.0, 512.0),
 	Vector2(-192.0, 280.0),
 	Vector2(-192.0, 280.0),
 	Vector2(-192.0, 280.0),
@@ -34,4 +34,5 @@ func _partDropped(partNode):
 		# 正解したらドラッグ不可に
 		partNode.set_process_input(false)
 	else:
+		print(partNode.global_position)
 		partNode.global_position = partNode.defaultIdx

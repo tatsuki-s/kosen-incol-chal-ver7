@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ctb4synlqarpq" path="res://sprite_2d.gd" id="1_lt4yx"]
 [ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="2_i1wwn"]
-[ext_resource type="PackedScene" uid="uid://c203w6bb0jja2" path="res://common.tscn" id="2_lt4yx"]
 
 [node name="Game" type="Node2D" unique_id=1719795711]
 script = ExtResource("1_lt4yx")
 
-[node name="CanvasLayer" parent="." unique_id=1640481762 instance=ExtResource("2_lt4yx")]
+[node name="Title" type="Node2D" parent="." unique_id=209906424]
 
-[node name="Logo" type="Label" parent="." unique_id=228432679]
+[node name="Logo" type="Label" parent="Title" unique_id=228432679]
 offset_left = 133.0
 offset_top = 144.0
 offset_right = 709.0
@@ -20,7 +19,7 @@ theme_override_font_sizes/font_size = 64
 text = "JRTT職業体験ゲーム"
 metadata/_edit_use_anchors_ = true
 
-[node name="StartButton" type="Button" parent="." unique_id=861265453]
+[node name="StartButton" type="Button" parent="Title" unique_id=861265453]
 offset_left = 839.0
 offset_top = 155.0
 offset_right = 1125.0
@@ -29,5 +28,3 @@ theme_override_fonts/font = ExtResource("2_i1wwn")
 theme_override_font_sizes/font_size = 32
 text = "ゲームスタート"
 metadata/_edit_use_anchors_ = true
-
-[node name="Title" type="Node2D" parent="." unique_id=267648315]

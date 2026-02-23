@@ -9,7 +9,6 @@ signal dropped(partNode)
 
 @onready var area2D = $Area2D
 
-var target = Vector2(-192, 280)
 var isDraging = false
 var dragSpace = 64
 var area = Rect2(64, 64, 1152, 576)
@@ -41,7 +40,6 @@ func _input(event):
 		var camPos = get_viewport().get_canvas_transform().affine_inverse() * Vector2(posX, posY)
 		
 		global_position = camPos
-		print(camPos == target)
 		
 "
 
