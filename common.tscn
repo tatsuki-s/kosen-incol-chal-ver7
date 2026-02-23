@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c203w6bb0jja2"]
 
+[ext_resource type="Script" uid="uid://h2rem0460ilu" path="res://common.gd" id="1_eidl8"]
 [ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="1_fcr1k"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1640481762]
+script = ExtResource("1_eidl8")
 
 [node name="Level" type="Label" parent="." unique_id=1385953413]
 offset_left = 1130.0

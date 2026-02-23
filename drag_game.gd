@@ -7,10 +7,7 @@ var correct = 0
 var ans = [
 	#一例
 	Vector2(512.0, 512.0),
-	Vector2(-192.0, 280.0),
-	Vector2(-192.0, 280.0),
-	Vector2(-192.0, 280.0),
-	Vector2(-192.0, 280.0)
+	Vector2(512.0, 512.0)
 	]
 
 func _ready() -> void:
@@ -34,8 +31,9 @@ func _partDropped(partNode):
 		print("正解")
 		correct += 1
 		if correct >= len(ans):
-			# ここでmessageシーンを呼びたい
-			pass
+			get_tree().change_scene_to_file("res://conversation.tscn")
+			Global.nowLv += 1
+			Common.updateLv()
 			
 		# 正解したらドラッグ不可に
 		partNode.set_process_input(false)
