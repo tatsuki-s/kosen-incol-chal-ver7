@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://k0po40po23e7"]
 
+[ext_resource type="Script" uid="uid://b8otbtv454wob" path="res://title.gd" id="1_oyqm6"]
 [ext_resource type="FontFile" uid="uid://cej8loog2y2qj" path="res://addons/KH-Dot-Kodenmachou-12-Ki.ttf" id="1_y7k74"]
 
 [node name="Title" type="Node2D" unique_id=951160289]
+script = ExtResource("1_oyqm6")
 
 [node name="Logo" type="Label" parent="." unique_id=107748709]
 offset_left = 133.0
@@ -16,10 +18,10 @@ text = "JRTT職業体験ゲーム"
 metadata/_edit_use_anchors_ = true
 
 [node name="StartButton" type="Button" parent="." unique_id=730938627]
-offset_left = 839.0
-offset_top = 155.0
-offset_right = 1125.0
-offset_bottom = 240.0
+offset_left = 151.0
+offset_top = 293.0
+offset_right = 437.0
+offset_bottom = 378.0
 theme_override_fonts/font = ExtResource("1_y7k74")
 theme_override_font_sizes/font_size = 32
 text = "ゲームスタート"

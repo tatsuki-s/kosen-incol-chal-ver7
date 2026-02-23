@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://ba0q1okuwdx33"]
 
 [ext_resource type="Script" uid="uid://ctb4synlqarpq" path="res://sprite_2d.gd" id="1_lt4yx"]
-[ext_resource type="PackedScene" uid="uid://k0po40po23e7" path="res://title.tscn" id="2_lk3y4"]
 
 [node name="Game" type="Node2D" unique_id=1719795711]
 script = ExtResource("1_lt4yx")
-
-[node name="Title" parent="." unique_id=951160289 instance=ExtResource("2_lk3y4")]

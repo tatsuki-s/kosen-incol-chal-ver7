@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="kosen-incol-chal-ver7"
-run/main_scene="uid://ba0q1okuwdx33"
+run/main_scene="uid://k0po40po23e7"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
