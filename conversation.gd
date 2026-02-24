@@ -7,10 +7,7 @@ extends Node2D
 
 var duration:float = 0.05
 
-var dialogs = [
-	["先輩", "やあ"],
-	["自分", "どうも"]
-]
+var dialogs = Global.post[Global.nowLv]["dialogs"]
 
 func _ready() -> void:
 	msg.text = ""
