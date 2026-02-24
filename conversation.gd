@@ -17,18 +17,7 @@ func _ready() -> void:
 	spkr.text = ""
 	nextButton.hide()
 	startConversation()
-	
-# 1文字ずつ表示する処理
-#func msg_play():
-	#msg.visible_ratio += 1.0 / msg.text.length() 
-	#
-	##if not is_inside_tree(): return
-	#
-	#await get_tree().create_timer(duration).timeout
-	#if msg.visible_ratio < 1: 
-		#msg_play()
-	#else:
-		#nextButton.show()
+
 # 1文字ずつ表示させる関数
 func msg_show(speaker, message) -> void:
 	if not is_inside_tree():
