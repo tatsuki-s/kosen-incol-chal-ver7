@@ -37,6 +37,8 @@ func _input(event):
 		posX = clamp(posX, area.position.x, area.end.x)
 		posY = clamp(posY, area.position.y, area.end.y)
 		
+		print(posX, \" \", posY)
+		
 		var camPos = get_viewport().get_canvas_transform().affine_inverse() * Vector2(posX, posY)
 		
 		global_position = camPos
