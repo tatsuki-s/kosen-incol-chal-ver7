@@ -12,6 +12,7 @@ var post = [
 			["自分", "そうなんですね！がんばります！"],
 			["先輩", "じゃあ，とりあえず資料を配ってくれ。"],
 		],
+		"backGround": "res://assets/game/envelop_paper.png",
 		"ans": [
 			Vector2(1024.0, 384.0)
 		],

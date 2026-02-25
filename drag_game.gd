@@ -9,7 +9,8 @@ var textures = Global.post[Global.nowLv]["textures"]
 
 func _ready() -> void:
 	#spawn(Vector2(0, 0))
-	
+	var backGround = $BackGround
+	backGround.texture = load(Global.post[Global.nowLv]["backGround"])
 	var defaultX = 60
 	for i in range(len(ans)):
 		spawn(Vector2(defaultX, 60), i)

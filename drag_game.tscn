@@ -4,3 +4,6 @@
 
 [node name="DragGame" type="Node2D" unique_id=815526602]
 script = ExtResource("1_aweny")
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=360247608]
+centered = false
