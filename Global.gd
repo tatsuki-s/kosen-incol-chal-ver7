@@ -25,6 +25,28 @@ var post = [
 		# 中心線測量
 		"name":"職員",
 		"dialogs" : [
+			["先輩", "地元説明会が終わったら，今度は中心線測量をするよ。"],
+			#["自分", "中心線測量？"],
+			#["先輩", "中心線測量というのは，路線計画の中心線を一定間隔ごとに杭を打つことで示す作業のことを。"],
+			#["先輩", "今日はその作業をやってもらうよ。"],
+			#["自分", "承知しました！がんばります！"]
+		],
+		"backGround": "res://assets/backgrounds/game2.png",
+		"ans": [
+			Vector2(384, 96),
+			Vector2(384, 384),
+			Vector2(384, 576)
+		],
+		"textures": [
+			"res://assets/game/pin1.png",
+			"res://assets/game/pin2.png",
+			"res://assets/game/pin3.png"
+		]
+	},
+	{
+		# 設計協議・設計
+		"name":"副課長",
+		"dialogs" : [
 			["先輩", "usu"],
 			["自分", "dmo"]
 		],
@@ -35,10 +57,6 @@ var post = [
 		"textures": [
 			"res://icon.svg"
 		]
-	},
-	{
-		# 設計協議・設計
-		"name":"副課長"
 	},
 	{
 		# 用地取得

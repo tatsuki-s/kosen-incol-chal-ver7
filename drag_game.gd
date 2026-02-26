@@ -1,7 +1,7 @@
 extends Node2D
 
 var partsScene = preload("res://parts.tscn")
-var space = 128
+var space = 96
 var correct = 0
 
 var ans = Global.post[Global.nowLv]["ans"]
