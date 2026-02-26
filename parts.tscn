@@ -3,14 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://bsifa5etkdnvc" path="res://icon.svg" id="1_mifpu"]
 
 [sub_resource type="GDScript" id="GDScript_lt4yx"]
-script/source = "extends Sprite2D
+script/source = "extends TextureRect
 
 signal dropped(partNode)
 
 @onready var area2D = $Area2D
 
 var isDraging = false
-var dragSpace = 64
+var dragSpace = 96
 var area = Rect2(64, 64, 1152, 576)
 var defaultIdx = Vector2.ZERO
 
@@ -45,16 +45,21 @@ func _input(event):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7cmv"]
-size = Vector2(128, 126)
+size = Vector2(125, 126)
 
-[node name="Parts" type="Sprite2D" unique_id=315916150]
-scale = Vector2(0.5, 0.5)
+[node name="Parts" type="TextureRect" unique_id=896461328]
+offset_left = -66.0
+offset_top = -64.0
+offset_right = 62.0
+offset_bottom = 64.0
 texture = ExtResource("1_mifpu")
+expand_mode = 1
+stretch_mode = 5
 script = SubResource("GDScript_lt4yx")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=606100300]
 position = Vector2(-0.00010681152, 8.827591)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1650170936]
-position = Vector2(0.00010585785, -9.827591)
+position = Vector2(63.500107, 54.17241)
 shape = SubResource("RectangleShape2D_f7cmv")
