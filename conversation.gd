@@ -27,6 +27,8 @@ func msg_show(speaker, message) -> void:
 		spkrImage.texture = load("res://assets/theman.png")
 	elif speaker == "自分":
 		spkrImage.texture = load("res://assets/hideyo.png")
+	elif speaker == "クレジット":
+		spkrImage.hide()
 	msg.text = message
 	spkr.text = speaker
 	msg.visible_ratio = 0
@@ -53,13 +55,12 @@ func msg_show(speaker, message) -> void:
 	nextButton.hide()
 
 func startConversation():
+	for i in dialogs:
+		await msg_show(i[0], i[1])
 	if Global.nowLv == Global.post.size() -1:
-		await msg_show("先輩", Global.post[Global.nowLv]+"就任おめでとう")
 		Common.updateLv()
 		Global.toTitle() 
 		return
 	else:
-		for i in dialogs:
-			await msg_show(i[0], i[1])
 		Global.toGame()
 		return

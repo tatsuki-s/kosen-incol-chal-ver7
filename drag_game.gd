@@ -32,7 +32,7 @@ func _partDropped(partNode):
 		if correct >= len(ans):
 			Global.nowLv += 1
 			Common.updateLv()
-			get_tree().call_deferred("change_scene_to_file", "res://conversation.tscn")
+			get_tree().change_scene_to_file.call_deferred("res://conversation.tscn")
 			
 		# 正解したらドラッグ不可に
 		partNode.set_process_input(false)

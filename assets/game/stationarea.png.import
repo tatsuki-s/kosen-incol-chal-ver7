@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c36pevk3ku62p"
-path="res://.godot/imported/pin.png-4bfe46e20ed2a4c38dd7e05610a61b28.ctex"
+uid="uid://cyyk4lli31jbn"
+path="res://.godot/imported/stationarea.png-673f2e5152b5e8de4769314f1ad7285e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/pin.png"
-dest_files=["res://.godot/imported/pin.png-4bfe46e20ed2a4c38dd7e05610a61b28.ctex"]
+source_file="res://assets/game/stationarea.png"
+dest_files=["res://.godot/imported/stationarea.png-673f2e5152b5e8de4769314f1ad7285e.ctex"]
 
 [params]
 
